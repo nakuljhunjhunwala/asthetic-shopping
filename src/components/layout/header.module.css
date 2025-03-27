@@ -1,0 +1,214 @@
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: all var(--transition-medium);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    height: var(--header-height);
+}
+
+.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    height: 100%;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.logoGlow {
+    color: var(--neon);
+    margin-right: 2px;
+    text-shadow: var(--glow);
+}
+
+.desktopNav {
+    display: flex;
+}
+
+.navList {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navItem {
+    margin: 0 var(--spacing-sm);
+}
+
+.navLink,
+.activeNavLink {
+    color: var(--white);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    transition: color var(--transition-fast), text-shadow var(--transition-fast);
+    position: relative;
+}
+
+.navLink::after,
+.activeNavLink::after {
+    content: "";
+    position: absolute;
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+    bottom: -2px;
+    height: 2px;
+    background-color: var(--neon);
+    transform: scaleX(0);
+    transition: transform var(--transition-medium);
+    transform-origin: center;
+}
+
+.navLink:hover {
+    color: var(--neon);
+    text-shadow: var(--glow);
+}
+
+.navLink:hover::after {
+    transform: scaleX(0.5);
+}
+
+.activeNavLink {
+    color: var(--neon);
+    text-shadow: var(--glow);
+}
+
+.activeNavLink::after {
+    transform: scaleX(1);
+}
+
+.searchContainer {
+    margin-left: var(--spacing-lg);
+    max-width: 300px;
+    width: 100%;
+}
+
+.mobileMenuButton {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburgerLine {
+    width: 100%;
+    height: 2px;
+    background-color: var(--white);
+    transition: all var(--transition-fast);
+}
+
+.mobileMenuButtonOpen .hamburgerLine:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--neon);
+}
+
+.mobileMenuButtonOpen .hamburgerLine:nth-child(2) {
+    opacity: 0;
+}
+
+.mobileMenuButtonOpen .hamburgerLine:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--neon);
+}
+
+.mobileMenu {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.mobileNav {
+    padding: var(--spacing-lg);
+}
+
+.mobileNavList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.mobileNavItem {
+    margin: var(--spacing-md) 0;
+}
+
+.mobileNavLink,
+.activeMobileNavLink {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: var(--spacing-sm) 0;
+    transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+.mobileNavLink:hover {
+    color: var(--neon);
+    text-shadow: var(--glow);
+}
+
+.activeMobileNavLink {
+    color: var(--neon);
+    text-shadow: var(--glow);
+}
+
+.mobileSearchContainer {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .searchContainer {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .desktopNav,
+    .searchContainer {
+        display: none;
+    }
+
+    .mobileMenuButton {
+        display: flex;
+    }
+
+    .mobileMenu {
+        display: block;
+    }
+}

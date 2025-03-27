@@ -1,0 +1,180 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-gray);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+.imagePlaceholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--medium-gray);
+    transition: transform var(--transition-medium);
+}
+
+.card:hover .imagePlaceholder {
+    transform: scale(1.05);
+}
+
+.price {
+    position: absolute;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--black);
+    color: var(--neon);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    z-index: 2;
+}
+
+.category {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--neon-pink);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.content {
+    flex: 1;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--white);
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+    flex: 1;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: auto;
+}
+
+.tag {
+    font-size: 0.75rem;
+    color: var(--neon);
+    transition: color var(--transition-fast);
+}
+
+.tag:hover {
+    color: var(--white);
+}
+
+.multipleImages {
+    margin-top: var(--spacing-sm);
+    font-size: 0.75rem;
+    color: var(--neon-purple);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.multipleImages::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239d00ff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' /%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--transition-medium);
+    z-index: 1;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.viewDetails {
+    background-color: var(--neon);
+    color: var(--black);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform var(--transition-medium), opacity var(--transition-medium);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.card:hover .viewDetails {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        padding: var(--spacing-md);
+    }
+
+    .name {
+        font-size: 1.125rem;
+    }
+
+    .description {
+        font-size: 0.8125rem;
+        margin-bottom: var(--spacing-sm);
+    }
+}

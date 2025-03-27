@@ -1,0 +1,207 @@
+.products {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: var(--spacing-xxl);
+}
+
+.container {
+    max-width: var(--container-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.header {
+    padding: var(--spacing-xxl) 0 var(--spacing-xl);
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--dark-gray);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sortContainer {
+    display: flex;
+    align-items: center;
+}
+
+.sortLabel {
+    margin-right: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.sortSelect {
+    background-color: var(--medium-gray);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-primary);
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sortSelect:focus {
+    border-color: var(--neon);
+    box-shadow: 0 0 0 1px var(--neon);
+}
+
+.categoryFilters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.categoryButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.categoryButton {
+    background-color: var(--medium-gray);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all var(--transition-fast);
+}
+
+.categoryButton:hover {
+    background-color: var(--light-gray);
+}
+
+.categoryButtonSelected {
+    background-color: var(--neon-purple);
+    color: var(--white);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 10px rgba(157, 0, 255, 0.3);
+}
+
+.categoryButtonSelected:hover {
+    background-color: var(--neon-purple);
+    opacity: 0.9;
+}
+
+.tagFilters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.filterLabel {
+    font-weight: 500;
+}
+
+.tagButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tagButton {
+    background-color: var(--medium-gray);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tagButton:hover {
+    background-color: var(--light-gray);
+}
+
+.tagButtonSelected {
+    background-color: var(--neon);
+    color: var(--black);
+    border-color: var(--neon);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.tagButtonSelected:hover {
+    background-color: var(--neon);
+    opacity: 0.9;
+}
+
+.clearButton {
+    align-self: flex-start;
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.noResults {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.noResults h3 {
+    font-size: 1.5rem;
+    color: var(--neon);
+    text-shadow: var(--glow);
+}
+
+.noResults p {
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.8;
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .filters {
+        gap: var(--spacing-md);
+    }
+
+    .tagButtons {
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 576px) {
+    .sortContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+
+    .productsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
