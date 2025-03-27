@@ -10,4 +10,25 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+      generateScopedName: '[local]_[hash:base64:5]',
+    }
+  },
+  base: '/',
+  build: {
+    // Simplify the build output
+    outDir: 'dist',
+    // Avoid manualChunks since it could be causing issues
+    rollupOptions: {
+      output: {
+        // Ensure assets have consistent names
+        assetFileNames: 'assets/[name].[hash].[ext]',
+        // Use a simpler chunk structure
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
+      },
+    },
+  },
 });

@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "postinstall": "[ -n \"$CI\" ] && echo 'Running in CI environment' || echo 'Running locally'"
+    "build": "vite build",
+    "typecheck": "tsc",
+    "preview": "vite preview"
   },
   "dependencies": {
     "framer-motion": "^10.15.0",
