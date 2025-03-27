@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "[ -n \"$CI\" ] && echo 'Running in CI environment' || echo 'Running locally'"
   },
   "dependencies": {
     "framer-motion": "^10.15.0",
